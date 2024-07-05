@@ -1,8 +1,10 @@
 /* Reset default margin and padding */
 * {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
   }
+
   
   /* Apply basic styles to html and body */
   html, body {
@@ -11,7 +13,13 @@
   
   /* Style for elements with class .webgl */
   .webgl {
-    outline: none;
+    border: none
+  }
+
+  #canvas-container {
+    width: 100%;
+    height: 100vh;
+    position: relative;
   }
   
   /* Styling for #settings container */
@@ -90,21 +98,25 @@
     opacity: 0.4;
   }
   
+  #overlay {
+    position: absolute;
+    pointer-events: none;
+  }
+
   /* Styling for interactive boxes */
   .project-box {
 
+    pointer-events: auto;
     display: block;
-    position: absolute;
+    position: relative;
 
-    
-    width: auto;
-    max-width: 20%;
+    min-width: 30vw;
+    width: 30vw;
     height: auto;
     min-height: 20vh;
-    max-height: 15px;
-    
+
     padding: 10px;
-    padding-bottom: 25px;
+    padding-bottom: 10px;
     margin: 20px;
 
     border: 2px solid #222;
@@ -115,7 +127,7 @@
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 
     word-wrap: normal;
-    overflow: auto;
+
     scrollbar-width: thin;
     scrollbar-color: rgba(0, 0, 0, 0.5) rgba(0, 0, 0, 0.1);
 
@@ -148,20 +160,20 @@
     font-size: smaller;
     font-weight: lighter;
     text-overflow: ellipsis; 
-    white-space: wrap;
+    white-space: normal;
     }   
   footer {
     flex-shrink: 0;
     position: relative;
     padding: 5px;
-    bottom: 5px;
+
     font-size:smaller;
     opacity: 0.5;
     text-align: right;
   }
 
   #pbmain {
-    max-width: 25%;
+    height: auto;
     }
   #pbmain h1 {
     border-image: radial-gradient(#000000, #b6b6b6);
@@ -180,3 +192,4 @@
   .strikethrough-text {
     text-decoration: line-through;
   }
+  
